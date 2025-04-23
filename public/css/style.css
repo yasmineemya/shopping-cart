@@ -232,5 +232,44 @@ body {
   .checkout-form button:hover {
     background-color: #333;
   }
+
+  .product-name {
+    text-decoration: none;
+    color: #000;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+  }
+  
+  .product-name:hover {
+    color: #444;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  a:visited {
+    color: inherit;
+  }
+  
+  a:hover {
+    color: #444;
+  }
+  .edit-link {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+  
+  ..edit-link a {
+    font-size: 12px;
+    text-decoration: none;
+    color: #000;
+    font-family: 'Didact Gothic', sans-serif;
+    border-bottom: 1px solid #ccc;
+    letter-spacing: 0.5px;
+  }
+  
   
   

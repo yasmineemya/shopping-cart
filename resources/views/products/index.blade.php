@@ -86,14 +86,17 @@
 
   <div class="navbar">
   <a href="/products">
-    SHOP</a>  | &nbsp; <a href = "/cart">CART</a>  | &nbsp; <a href = "/admin/products">ADMIN&nbsp;</a>
+    SHOP</a>  | &nbsp; <a href = "/cart">CART</a>  | &nbsp; <a href = "/admin/products">ADMIN&nbsp;</a>|  <a href="/admin/orders">ORDERS</a>
+    </div>
   </div>
 
   <div class="product-grid">
     @foreach ($products as $product)
       <div class="product-card">
         <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
-        <h2>{{ $product->name }}</h2>
+        <div class="edit-link">
+        <a href="/products/{{ $product->id }}" class="product-name">{{ $product->name }}</a>                    
+    </div>
         <p class="price">${{ $product->price }}</p>
         <form action="/cart/add" method="POST">
   @csrf

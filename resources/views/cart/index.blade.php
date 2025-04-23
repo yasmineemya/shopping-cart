@@ -11,6 +11,7 @@
 <div class="navbar">
   <a href="/products">
     SHOP</a>  | &nbsp; <a href = "/cart">CART</a>  | &nbsp; <a href = "/admin/products">ADMIN&nbsp;</a>
+    |  <a href="/admin/orders">ORDERS</a>
   </div>
 
 <div class="container">

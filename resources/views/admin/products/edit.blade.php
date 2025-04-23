@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Products</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <style>
+    <title>Edit Product</title>
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<style>
     body {
       font-family: 'Didact Gothic', sans-serif;
       background: white;
@@ -130,49 +130,26 @@
   color: #555;
   border-color: #aaa;
 }
-
 </style>
-</head>
 <body>
-<header>Admin - Add Product</header>
+<header>Edit Product</header>
 <div class="navbar">
-  <a href="/products">
-    SHOP</a>  | &nbsp; <a href = "/cart">CART</a>  | &nbsp; <a href = "/admin/products">ADMIN&nbsp;</a> <a href="/admin/orders">ORDERS</a>
-    </div>
-  </div>
-    
+    <a href="/products">SHOP</a> | <a href="/cart">CART</a> | <a href="/admin/products">ADMIN</a>
+    |  <a href="/admin/orders">ORDERS</a>
+</div>
 
-    <div class="container">
-        <form action="/admin/products/add" method="POST" class="admin-form">
-            @csrf
-            <input type="text" name="sku" placeholder="SKU" required>
-            <input type="text" name="name" placeholder="Product Name" required>
-            <textarea name="description" placeholder="Product Description" required></textarea>
-            <input type="text" name="image_url" placeholder="Image URL" required>
-            <input type="number" step="0.01" name="price" placeholder="Price" required>
-            <input type="text" name="item" placeholder="item (optional)">
-            <input type="text" name="size" placeholder="Size (optional)">
-            <button type="submit">Add Product</button>
-        </form>
-
-        <h2 class="section-title">Current Products</h2>
-        <div class="product-grid">
-            @foreach ($products as $product)
-                <div class="product-card">
-                    <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
-                    <div class="product-info">
-                        <h5>{{ $product->name }}</h5>
-                        <p>${{ number_format($product->price, 2) }}</p>
-                        <p class="text-muted">{{ $product->sku }}</p>
-                    </div>
-                    <div class="edit-link">
-                    <a href="/admin/products/edit/{{ $product->id }}">EDIT</a>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div>
+<div class="container">
+    <form action="/admin/products/update/{{ $product->id }}" method="POST" class="admin-form">
+        @csrf
+        <input type="text" name="sku" value="{{ $product->sku }}" required>
+        <input type="text" name="name" value="{{ $product->name }}" required>
+        <textarea name="description" required>{{ $product->description }}</textarea>
+        <input type="text" name="image_url" value="{{ $product->image_url }}" required>
+        <input type="number" step="0.01" name="price" value="{{ $product->price }}" required>
+        <input type="text" name="color" value="{{ $product->color }}">
+        <input type="text" name="size" value="{{ $product->size }}">
+        <button type="submit">Update Product</button>
+    </form>
+</div>
 </body>
 </html>
-
-
